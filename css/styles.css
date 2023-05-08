@@ -109,6 +109,7 @@ ul li:not(:nth-child(3)) a:hover {
   ul {
     position: absolute;
     top: 100%;
+    left: 12px;
   }
 
   nav {
@@ -121,7 +122,7 @@ ul li:not(:nth-child(3)) a:hover {
     overflow: hidden;
   }
 
-  ul .logo img {
+  ul .logo {
     display: none;
   }
 
