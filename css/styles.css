@@ -1,0 +1,348 @@
+/*General*/
+
+:root {
+  --maincolor: #8337b3;
+  --mainRadius: 48%;
+}
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "hamouch";
+  src: url(../fonts/TarunoWide-Medium.otf);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "hamouch";
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/*nav*/
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  z-index: 2;
+  animation: fadeDown 0.8s both;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul .logo img {
+  height: 40px;
+  margin-top: 10px;
+}
+
+ul li {
+  padding-left: 50px;
+  margin: 10px 0;
+}
+
+ul li:not(:nth-child(3)) a {
+  padding: 10px;
+  color: white;
+}
+
+ul li:not(:nth-child(3)) a:hover {
+  background-color: var(--maincolor);
+  border-radius: 20px 0 20px 20px;
+}
+
+@media (min-width: 767px) {
+  nav .bar,
+  nav .logoMobile {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  ul {
+    position: absolute;
+    top: 100%;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-image: url(../images/la\ barre.png);
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+  }
+
+  ul .logo img {
+    display: none;
+  }
+
+  ul li {
+    padding-left: 0;
+  }
+
+  ul li a {
+    font-size: 9px;
+  }
+
+  nav .logoMobile {
+    width: 55px;
+  }
+
+  nav .bar {
+    width: 40px;
+  }
+}
+
+/*Landing*/
+
+.landing {
+  background-image: url(../images/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+}
+
+.landing .me {
+  width: 40%;
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.landing .me img {
+  max-width: 100%;
+  animation: fadeUp 0.8s both;
+}
+
+.landing .me a {
+  background-color: var(--maincolor);
+  border-radius: 30px 0 40px 30px;
+  padding: 15px;
+  color: white;
+  width: fit-content;
+  position: relative;
+  display: block;
+  bottom: 20px;
+  animation: fadeDownLess 0.8s both;
+  animation-delay: 1s;
+}
+
+.landing .me > i {
+  font-size: 50px;
+  color: white;
+  position: relative;
+  bottom: 10px;
+  animation: updown 1s infinite;
+}
+
+.landing .text {
+  position: absolute;
+  top: 35%;
+  left: 32%;
+  color: white;
+  transform: translateX(-55%);
+  text-align: start;
+  width: max-content;
+}
+
+.landing .text::before {
+  content: "";
+  position: relative;
+  background-color: white;
+  width: 75px;
+  height: 40px;
+  display: block;
+  left: 80%;
+  top: 15px;
+  border-radius: 20px 0 20px 20px;
+  animation: fadeUp 0.8s both;
+  animation-delay: 0.8s;
+}
+
+.landing .text h1 {
+  font-size: 32px;
+  margin-bottom: 0;
+  animation: fadeUp 0.8s both;
+  animation-delay: 0.8s;
+}
+
+.landing .text h2 {
+  font-size: 19px;
+  margin-top: 3px;
+  letter-spacing: 1.5px;
+  animation: fadeUp 0.8s both;
+  animation-delay: 0.8s;
+}
+
+@media (max-width: 767px) {
+  .landing .me {
+    width: 100%;
+  }
+
+  .landing .me a {
+    font-size: 12px;
+    padding: 8px;
+    bottom: 10px;
+  }
+
+  .landing .me > i {
+    display: none;
+  }
+
+  .landing .text::before {
+    display: none;
+  }
+
+  .landing .text {
+    position: absolute;
+    top: 55%;
+    left: 37%;
+    color: white;
+  }
+
+  .landing .text h1 {
+    font-size: 15px;
+    margin-bottom: 0;
+    letter-spacing: 2.5px;
+  }
+
+  .landing .text h2 {
+    font-size: 10px;
+    margin-top: 3px;
+  }
+}
+
+/*Animations*/
+
+@keyframes updown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDownLess {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutAnima {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+}
+
+@keyframes fadeInAnima {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.fadeOut {
+  animation: fadeOutAnima 0.8s both;
+}
+
+.fadeIn {
+  animation: fadeInAnima 0.8s both;
+  animation-delay: 0.5s;
+}
